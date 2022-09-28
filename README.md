@@ -1,4 +1,5 @@
 # JobPal
+![Alt Text](https://media.giphy.com/media/3vZrz3V8NIXHKTjKl0/giphy.gif)
 ## Features
 Application that allows a tradie to see their jobs.
 Jobs have the following information associated with them:
@@ -12,6 +13,18 @@ The tradie should be able to:
 - Filter and sort the list of jobs.
 - Click on a job in the list to view their details and add/edit notes for that job.
 - Change the status of a job.
+
+Non-functional:
+- Responsive design
+- CI/CD Build pipeline
+
+## Frameworks & Tools used
+- VirtualDom & Components [Vue.js](https://vuejs.org/)
+- SPA Support [Vue Router](https://router.vuejs.org/)
+- Localisation support [Vue i18n](https://kazupon.github.io/vue-i18n/)
+- Material Design UI Component kit [Vuetify](https://vuetifyjs.com/)
+- Unit Tests [Mocha](https://mochajs.org/)
+- E2E Tests [NightWatch](https://nightwatchjs.org/)
 
 ## Project Structure
 ```
