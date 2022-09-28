@@ -7,7 +7,13 @@ export default class LocalService {
     this.store = app.store[path]
   }
 
+  /**
+   * Returns many, see FeathersJS docs for service implementation
+   * @param {*} params query, other params.
+   * @returns {Array}
+   */
   async find (params) {
+    // Filtering on service
     if (params.query) {
       const filtered = this.store.filter((entity) => {
         for (const [key, value] of Object.entries(params.query)) {
@@ -19,9 +25,13 @@ export default class LocalService {
       })
       return _.cloneDeep(filtered)
     }
+    // Clone deeps are required to keep objects from referencing each other in vue app / API / store.
     return _.cloneDeep(this.store)
   }
 
+  /**
+   * Returns one by id, see FeathersJS docs for service implementation
+   */
   async get (id, params) {
     const found = this.store.find((entity) => entity._id === id)
     if (!found) {
@@ -30,7 +40,14 @@ export default class LocalService {
     return _.cloneDeep(found)
   }
 
+  /**
+   * Creates one from data
+   * @param {object} data Entity data
+   * @param {object} params query, other params.
+   * @returns {object}
+   */
   async create (data, params) {
+    // Add some default properties to every entity.
     const base = {
       _id: uuidv4(),
       createdAt: new Date().toISOString(),
@@ -41,6 +58,13 @@ export default class LocalService {
     return _.cloneDeep(entity)
   }
 
+  /**
+   * Updates / PUT one from data by id
+   * @param {string} id Entity id
+   * @param {object} data Entity data
+   * @param {object} params query, other params.
+   * @returns {object}
+   */
   async update (id, data, params) {
     const indexToEdit = this.store.findIndex((entity) => entity._id === id)
     if (indexToEdit === -1) {
@@ -55,6 +79,12 @@ export default class LocalService {
     throw new Error('Not implemented')
   }
 
+  /**
+   * Remove and entity by id
+   * @param {*} id id to remove
+   * @param {*} params query, other params.
+   * @returns {object}
+   */
   async remove (id, params) {
     const indexToRemove = this.store.findIndex((entity) => entity._id === id)
     if (indexToRemove === -1) {

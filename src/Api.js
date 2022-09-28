@@ -1,5 +1,10 @@
 import feathers from '@feathersjs/feathers'
 import LocalService from './LocalService'
+
+/**
+ * API models a mocked FeathersJS REST API, with a couple of lines of code this could be turned into a client for a FeathersJS NodeJS server.
+ * Right now it acts as both Server + Client, but Client-only mode is possbile too.
+ */
 export default class Api {
   constructor () {
     this._feathersApp = feathers()
@@ -16,6 +21,9 @@ export default class Api {
     }
   }
 
+  /**
+   * Generates some clients, jobs and notes for the in-memory data store.
+   */
   async generateMockData () {
     const steve = await this.service('clients').create({
       name: 'Steve McSteve',

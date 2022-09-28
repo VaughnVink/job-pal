@@ -5,9 +5,6 @@
       style="flex-grow: 0;"
       color="white"
     >
-      <!-- <v-btn @click="$router.push('/')" v-show="!isMainPage" icon>
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-btn> -->
       <v-toolbar-title id="top-title">
         <v-btn
           large
@@ -30,12 +27,6 @@
             style="font-size: 16px"
           >
             {{ $config.app }}
-            <!-- <v-icon
-              v-if="$vuetify.breakpoint.mobile"
-              right
-            >
-              mdi-chevron-down
-            </v-icon> -->
           </span>
         </v-btn>
       </v-toolbar-title>
@@ -52,9 +43,6 @@
 
 export default {
   name: 'App',
-  data: () => ({
-    //
-  }),
   computed: {
     dynamicGradient () {
       return 'background: rgb(160,10,215); background: linear-gradient(127deg, ' + this.$vuetify.theme.themes.light.primary + ' 0%, ' + this.$vuetify.theme.themes.light.secondary + ' 100%);'
