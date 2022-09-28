@@ -1,5 +1,8 @@
 <template>
-  <jobs-table :jobs="jobs" />
+  <jobs-table
+    id="jobs-table"
+    :jobs="jobs"
+  />
 </template>
 
 <script>
@@ -23,7 +26,7 @@ export default {
       } catch (error) {
         console.error(error)
         this.$toasted.global.error({
-          message: 'Oops.. could not load jobs.'
+          message: this.$t('screens.jobs.errors.find')
         })
       }
       this.loadingJobs = false

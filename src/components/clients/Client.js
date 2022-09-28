@@ -19,7 +19,7 @@ export default {
       } catch (error) {
         console.error(error)
         this.$toasted.global.error({
-          message: 'Oops.. could not get client info.'
+          message: this.$t('screens.client.errors.get')
         })
       }
       this.clientLoading = false

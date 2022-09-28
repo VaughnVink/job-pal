@@ -5,16 +5,18 @@
         v-model="newNote"
         single-line
         rows="2"
-        placeholder="Write your notes here.."
+        :placeholder="$t('screens.notes.creationPlaceholder')"
         hide-details
       />
       <v-card-actions>
         <v-spacer /><v-btn
+          id="closeButton"
           color="primary"
           :loading="creatingNote"
           @click="createNote()"
         >
-          Post note<v-icon>mdi-chevron-right</v-icon>
+          {{ $t('screens.notes.create') }}
+          <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
       </v-card-actions>
     </div>
@@ -24,7 +26,7 @@
     >
       <v-list-item-content>
         <v-list-item-subtitle>
-          {{ $moment(note.createdAt).format('L LTS') }} - <a @click="removeNote(note._id)">Remove</a>
+          {{ $moment(note.createdAt).format('L LTS') }} - <a @click="removeNote(note._id)">{{ $t('screens.notes.remove') }}</a>
         </v-list-item-subtitle>
         <v-list-item-title>
           {{ note.description }}
@@ -57,7 +59,7 @@ export default {
       } catch (error) {
         console.error(error)
         this.$toasted.global.error({
-          message: 'Oops.. could not remove note.'
+          message: this.$t('screens.notes.errors.remove')
         })
       }
       this.getNotes()
@@ -71,7 +73,7 @@ export default {
       } catch (error) {
         console.error(error)
         this.$toasted.global.error({
-          message: 'Oops.. could not create note.'
+          message: this.$t('screens.notes.errors.create')
         })
       }
       this.getNotes()
@@ -88,7 +90,7 @@ export default {
       } catch (error) {
         console.error(error)
         this.$toasted.global.error({
-          message: 'Oops.. could not load notes.'
+          message: this.$t('screens.notes.errors.find')
         })
       }
       this.loadingNotes = false

@@ -4,7 +4,11 @@
   },
   "screens": {
     "jobs": {
-      "title": "Jobs"
+      "title": "Jobs",
+      "search": "Search",
+      "errors": {
+        "find": "Oops.. could not load jobs."
+      }
     },
     "job": {
       "jobNumber": "Job#",
@@ -12,6 +16,8 @@
       "reference": "Job",
       "name": "Name",
       "status": "Status",
+      "notes": "Notes",
+      "createdAt": "Created at",
       "statuses": {
         "scheduled": "Scheduled",
         "active": "Active",
@@ -19,10 +25,27 @@
         "to priced": "To Priced",
         "completed": "Completed"
       },
-      "createdAt": "Created at"
+      "errors": {
+        "get": "Oops.. could not load job.",
+        "update": "Oops.. could not update job status."
+      }
     },
     "clients": {
-      "title": "Clients"
+      "title": "Clients",
+      "errors": {
+        "get": "Oops.. could not get client info."
+      }
+    },
+    "notes": {
+      "title": "Notes",
+      "creationPlaceholder": "Write your notes here..",
+      "remove": "Remove",
+      "create": "Post note",
+      "errors": {
+        "find": "Oops.. could not load notes.",
+        "create": "Oops.. could not create note.",
+        "remove": "Oops.. could not remove note."
+      }
     },
     "client": {
       "title": "Client details",
