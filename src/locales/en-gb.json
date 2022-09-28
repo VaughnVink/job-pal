@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "JobPal"
+  },
+  "screens": {
+    "jobs": {
+      "title": "Jobs"
+    },
+    "job": {
+      "title": "Job Details",
+      "reference": "Job",
+      "name": "Name",
+      "status": "Status",
+      "statuses": {
+        "scheduled": "Scheduled",
+        "active": "Active",
+        "invoicing": "Invoicing",
+        "to priced": "To Priced",
+        "completed": "Completed"
+      },
+      "createdAt": "Created at"
+    },
+    "clients": {
+      "title": "Clients"
+    },
+    "client": {
+      "title": "Client details",
+      "reference": "Client",
+      "name": "Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "address": "Address"
+    }
+  }
+}
