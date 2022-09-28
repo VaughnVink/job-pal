@@ -76,6 +76,7 @@ const setup = async () => {
 
   // API
   Vue.prototype.$api = new Api()
+  await Vue.prototype.$api.generateMockData()
 
   new Vue({
     router,
