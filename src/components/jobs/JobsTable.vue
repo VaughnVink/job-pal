@@ -17,6 +17,9 @@
         {{ $t('screens.job.statuses.' + item.status) }}
       </v-chip>
     </template>
+    <template v-slot:[`item.identifier`]="{ item }">
+      <span style="text-transform: uppercase;">{{ $t('screens.job.reference') + '-' + item.identifier }}</span>
+    </template>
     <template v-slot:[`item.createdAt`]="{ item }">
       {{ $moment(item.createdAt).format('L LTS') }}
     </template>
@@ -41,6 +44,11 @@ export default {
   computed: {
     headers () {
       return [
+        {
+          width: '100',
+          text: this.$t('screens.job.jobNumber'),
+          value: 'identifier'
+        },
         {
           width: '100',
           text: this.$t('screens.client.reference'),

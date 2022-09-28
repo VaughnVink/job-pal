@@ -32,6 +32,7 @@ export default class Api {
     })
     const stevesPlumbingJob = await this.service('jobs').create({
       clientId: steve._id,
+      identifier: 1,
       name: 'Fix steve`s plumbing.',
       status: 'scheduled'
     })
@@ -41,11 +42,13 @@ export default class Api {
     })
     await this.service('jobs').create({
       clientId: steve._id,
+      identifier: 2,
       name: 'Water the garden.',
       status: 'active'
     })
     await this.service('jobs').create({
       clientId: maria._id,
+      identifier: 3,
       name: 'Water the garden.',
       status: 'active'
     })

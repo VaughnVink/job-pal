@@ -2,7 +2,7 @@
   <v-card v-if="job">
     <v-card-title>{{ job.name }}<v-spacer /><slot name="nav" /></v-card-title>
     <v-card-subtitle>
-      {{ $moment(job.createdAt).format('L LTS') }}
+      <span style="text-transform: uppercase;">{{ $t('screens.job.reference') + '-' + job.identifier }}</span> - {{ $moment(job.createdAt).format('L LTS') }}
     </v-card-subtitle>
     <v-row no-gutters>
       <v-col
