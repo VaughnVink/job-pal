@@ -50,6 +50,7 @@ const setup = async () => {
       iconPack: 'mdi',
       type: 'error',
       icon: 'alert-circle',
+      position: 'bottom-right',
       duration: 2000
     }
   )
@@ -63,6 +64,7 @@ const setup = async () => {
     {
       iconPack: 'mdi',
       type: 'success',
+      position: 'bottom-right',
       icon: 'check',
       duration: 2000
     }
