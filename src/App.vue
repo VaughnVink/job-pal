@@ -26,6 +26,7 @@
             </v-icon>
           </v-avatar>
           <span
+            id="app-title"
             style="font-size: 16px"
           >
             {{ $config.app }}
@@ -67,7 +68,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #top-title {
   font-weight: 500;
   cursor: pointer;
