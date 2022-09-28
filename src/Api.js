@@ -8,7 +8,6 @@ export default class Api {
       'jobs', 'clients', 'notes'
     ]
     this.createMockServices(mockedServices)
-    this.createMockData()
   }
 
   createMockServices (pathList) {
@@ -17,7 +16,7 @@ export default class Api {
     }
   }
 
-  async createMockData () {
+  async generateMockData () {
     const steve = await this.service('clients').create({
       name: 'Steve McSteve',
       address: '5/24 Main St, Auckland 1010, New Zealand',
