@@ -1,44 +1,48 @@
 <template>
   <v-app>
     <v-app-bar
-      app
-      color="primary"
-      dark
+      :elevation="0"
+      style="flex-grow: 0;"
+      color="white"
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer />
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <!-- <v-btn @click="$router.push('/')" v-show="!isMainPage" icon>
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn> -->
+      <v-toolbar-title id="top-title">
+        <v-btn
+          large
+          text
+          style="padding-left: 8px;"
+          @click="homeButtonClick()"
+        >
+          <v-avatar
+            dark
+            size="32"
+            :style="dynamicGradient + ' margin-right: 6px;'
+            "
+          >
+            <v-icon color="white">
+              {{ $config.icon }}
+            </v-icon>
+          </v-avatar>
+          <span
+            style="font-size: 16px"
+          >
+            {{ $config.app }}
+            <!-- <v-icon
+              v-if="$vuetify.breakpoint.mobile"
+              right
+            >
+              mdi-chevron-down
+            </v-icon> -->
+          </span>
+        </v-btn>
+      </v-toolbar-title>
     </v-app-bar>
-
     <v-main>
-      <router-view />
+      <v-container>
+        <router-view />
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -47,9 +51,28 @@
 
 export default {
   name: 'App',
-
   data: () => ({
     //
-  })
+  }),
+  computed: {
+    dynamicGradient () {
+      return 'background: rgb(160,10,215); background: linear-gradient(127deg, ' + this.$vuetify.theme.themes.light.primary + ' 0%, ' + this.$vuetify.theme.themes.light.secondary + ' 100%);'
+    }
+  },
+  methods: {
+    homeButtonClick () {
+      this.$router.push('/')
+    }
+  }
 }
 </script>
+
+<style scoped>
+#top-title {
+  font-weight: 500;
+  cursor: pointer;
+}
+.toasted-container {
+  font-family: "Roboto";
+}
+</style>

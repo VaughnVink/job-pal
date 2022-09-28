@@ -10,6 +10,9 @@ const routes = [
     component: () => import('../views/JobsView.vue')
   },
   {
+    path: '/jobs/:id',
+    name: 'job',
+    component: () => import('../views/JobView.vue')
   }
 ]
 
